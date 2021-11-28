@@ -1,7 +1,7 @@
 /*
  * @Date: 2021-11-28 12:40:29
  * @LastEditors: cunhang_wwei
- * @LastEditTime: 2021-11-28 12:56:04
+ * @LastEditTime: 2021-11-28 13:06:57
  * @Description: 实现一个通用的DeepReadonly<T>,它将对象的每个参数及其子对象递归地设为只读
  */
 
@@ -21,7 +21,7 @@ type Expected = {
   readonly y: "hey";
 };
 
-// ts 循环语句 [K in keyof T]: T[K]
+// ts 对象循环语句 [K in keyof T]: T[K]
 
 type DeepReadonly<T> = {
   readonly [K in keyof T]: T[K] extends object ? DeepReadonly<T[K]> : T[K];
